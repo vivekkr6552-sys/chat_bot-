@@ -5,7 +5,7 @@ import google.generativeai as genai
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # Load model
-model = genai.GenerativeModel("gemini-3-flash-preview")
+model = genai.GenerativeModel("gemini-2.5-flashw")
 
 def query(user_query):
     try:
@@ -44,6 +44,7 @@ if user_input:
        "msg":result
     })
         
+
 
 
 
