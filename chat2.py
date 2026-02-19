@@ -5,7 +5,7 @@ import google.generativeai as genai
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 # Load model
-model = genai.GenerativeModel("imagen-4.0-generate-001")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 def query(user_query):
     try:
