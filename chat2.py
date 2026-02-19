@@ -1,14 +1,18 @@
 import streamlit as st
-def query(user_query):   
-    from google import genai
+import google.generativeai as genai
 
-    api_key="AIzaSyChK_SaHXGSAYUr5Xsouf-yKNKUiFlu604"
-    my_ai = genai.Client(api_key = api_key)
-    response=my_ai.models.generate_content(
-            model="gemini-1.5-flash-001",
-            contents=user_query
-    )
-    return(response.text)
+# Configure API key securely
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+
+# Load model
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+def query(user_query):
+    try:
+        response = model.generate_content(user_query)
+        return response.text
+    except Exception as e:
+        return f"Error: {str(e)}"
 
 
 if'message' not in st.session_state:
@@ -40,6 +44,7 @@ if user_input:
        "msg":result
     })
         
+
 
 
 
