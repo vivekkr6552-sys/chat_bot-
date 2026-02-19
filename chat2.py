@@ -5,7 +5,7 @@ def query(user_query):
     api_key="AIzaSyChK_SaHXGSAYUr5Xsouf-yKNKUiFlu604"
     my_ai = genai.Client(api_key = api_key)
     response=my_ai.models.generate_content(
-            model="gemini-2.5-flash",
+            model="model="gemini-1.5-flash",
             contents=user_query
     )
     return(response.text)
@@ -40,6 +40,7 @@ if user_input:
        "msg":result
     })
         
+
 
 
 
